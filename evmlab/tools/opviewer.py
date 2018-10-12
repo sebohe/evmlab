@@ -1074,8 +1074,11 @@ python3 opviewer.py -f example.json -s /path/to/contracts -j /path/to/combined.j
 
             with open(args.json, 'r') as f:
                 combined = json.load(f)
-            trace.load_contract_sources_from_combined_json(tx=args.hash,
-                                                           combined_json=combined, source_prefix=args.source)
+            trace.load_contract_sources_from_combined_json(
+                    tx=args.hash,
+                    combined_json=combined,
+                    source_prefix=args.source
+                    )
     trace.show()
     logger.debug("--end--")
 

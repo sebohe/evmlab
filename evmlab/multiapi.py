@@ -102,6 +102,7 @@ class MultiApi(object):
 
         if self.web3:
             try:
+                addr = self.web3.toChecksumAddress(addr)
                 value = self.web3.eth.getStorageAt(addr, key, blnum)
                 self._putCached(cachekey, value)
                 return value
