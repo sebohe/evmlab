@@ -6,7 +6,6 @@ from . import mk_contract_address, encode_hex
 
 def buildContexts(ops, api, contracts, txhash):
     contract_stack = []
-
     tx = api.getTransaction(txhash)
     to = tx['to']
     blnum = int(tx['blockNumber'])
@@ -50,12 +49,13 @@ def buildContexts(ops, api, contracts, txhash):
 
         contract_stack.append(Context(addr, c))
 
+
     # contractTexts are not loaded by default, the following will
     # load the contractTexts and populate the sourceCache for the contract
     # corresponding to each op in this tx, greatly improving the response
     # time when quickly moving through the opviewer ui
     i = 0
-    while i < len(ops):
+    while i < len(ops) - 1:
         pc = ops[i]['pc']
         contract_stack[i].getSourceCode(pc)
         i += 1

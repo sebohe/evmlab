@@ -961,10 +961,12 @@ class EvmTrace(object):
         sources = []
 
         # get sources (text) for all contracts
-        for file in [os.path.join(source_prefix, s) for s in combined_json['sourceList']]:
-            with open(file) as s:
-                logger.debug(s.name)
-                sources.append(s.read())
+        for s in combined_json['sourceList']:
+            if s.count('/') == 0:
+                s = source_prefix+'/'+s
+            with open(s) as f:
+                logger.debug(f.name)
+                sources.append(f.read())
 
         # get contract
         for contract, val in combined_json['contracts'].items():
