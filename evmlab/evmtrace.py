@@ -28,8 +28,8 @@ OPCODE_FORMATS = {
     "DELEGATECALL": "DELEGATECALL(gas={0}, addr={1}, in={2}, insize={3}, out={4}, outsize={5})",
     "STATICCALL":   "STATICCALL(gas={0}, addr={1}, in={2}, insize={3}, out={4}, outsize={5})",
     "CALL":         "CALL(gas={0}, addr={1}, value={2}, in={3}, insize={4}, out={5}, outsize={6})",
-    "EXTCODECOPY":  "EXTCODECOPY(addr={0}, to={1}, from={2}, size={3}))",
-    "CODECOPY":     "CODECOPY(to={1}, from={2}, size={3}))",
+    "EXTCODECOPY":  "EXTCODECOPY(addr={0}, to={1}, from={2}, size={3})",
+    "CODECOPY":     "CODECOPY(to={0}, from={1}, size={2})",
     "CREATE":       "CREATE(val={0}, offset={1}, size={2})"
 }
 
